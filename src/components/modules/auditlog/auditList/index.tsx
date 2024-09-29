@@ -85,7 +85,7 @@ export default function AuditList() {
       </tbody>
       
     </table>
-    {(items.length < 1) && (
+    {(items.length < 1) && !loading && (
       <div className="flex items-center justify-center w-full">
         <div className="w-full text-center text-md font-medium">No items found</div>
       </div>
