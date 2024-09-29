@@ -24,8 +24,13 @@ body {
     background-size: 30px 30px;
     background-position: -5px -5px;
   }
+
+  
 }
 
+.animate-card {
+  @apply transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105;
+}
 
 /* Loader */
 
