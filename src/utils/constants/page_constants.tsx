@@ -28,13 +28,13 @@ const APPLICATION = {
     icon: <LuBook className="mr-3 h-5 w-5" />,
     isDisabled: false,
   },
-  Users: {
-    title: 'Users',
-    description: 'Manage your users',
-    href: '/users',
-    icon: <LuUser2 className="mr-3 h-5 w-5" />,
-    isDisabled: true,
-  },
+  // Users: {
+  //   title: 'Users',
+  //   description: 'Manage your users',
+  //   href: '/users',
+  //   icon: <LuUser2 className="mr-3 h-5 w-5" />,
+  //   isDisabled: true,
+  // },
   REPORTS: {
     title: 'Audit Log',
     description: 'View your audit log',
