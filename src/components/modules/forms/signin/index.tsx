@@ -27,7 +27,6 @@ export default function SignInForm() {
   } = useForm<SIGN_IN_INPUT>({ criteriaMode: 'all' });
 
   const onSubmit: SubmitHandler<SIGN_IN_INPUT> = async (data) => {
-    console.log(data)
     setLoading(true)
     const response = authSignIn(data)
     if (await response) {

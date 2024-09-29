@@ -62,7 +62,6 @@ async function authSignUp(payload) {
       },
     });
     const userData = response.data;
-    console.log(userData)
     return userData;
   } catch (error) {
     console.log(error);

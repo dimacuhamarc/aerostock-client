@@ -44,7 +44,6 @@ export default function OtpForm() {
     e.preventDefault();
     setLoading(true);
     const otpString = otp.join('');
-    console.log('Submitted OTP:', otpString);
     const response = await authOtpSignIn({ otp: otpString });
 
     if (response) {
