@@ -1,8 +1,12 @@
 import { Metadata } from 'next';
 import { APPLICATION } from '@/utils/constants/page_constants';
 import DashboardLayout from '@/components/layout/dashboard';
-import { ListCard, TotalItemsCard, UserCard } from '@/components/modules/dashboard';
-import { LuBarChart } from 'react-icons/lu';
+import {
+  ListCard,
+  TotalItemsCard,
+  UserCard,
+} from '@/components/modules/dashboard';
+import { LuBarChart, LuTrophy } from 'react-icons/lu';
 
 export const metadata: Metadata = {
   title: APPLICATION.DASHBOARD.title,
@@ -12,7 +16,7 @@ export const metadata: Metadata = {
 const user = {
   first_name: 'John',
   last_name: 'Doe',
-}
+};
 const totalItems = 1234;
 const topItems = [
   { name: 'Item A', value: 532 },
@@ -37,9 +41,17 @@ export default function Dashboard() {
         <div className="h-full grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3">
           <UserCard />
 
-          <ListCard title="Top 5 Items" items={topItems} icon={<LuBarChart className="h-4 w-4 mr-2 text-muted-foreground" />} />
+          <ListCard
+            title="Top 3 Items"
+            type="top_items"
+            icon={<LuTrophy className="h-8 w-8 mr-2 text-muted-foreground" />}
+          />
 
-          <ListCard title="New Items" items={newItems} icon={<LuBarChart className="h-4 w-4 mr-2 text-muted-foreground" />} />
+          <ListCard
+            title="New Items"
+            type="latest_items"
+            icon={<LuBarChart className="h-8 w-8 mr-2 text-muted-foreground" />}
+          />
 
           <TotalItemsCard />
         </div>
