@@ -3,12 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { getItemAuditLogs } from '@/utils/api/retriever';
 import {
-  AuditLogType,
   ItemWithAuditType,
 } from '@/utils/helpers/inventory-types';
-import { formatTimestamp } from '@/utils/helpers/app-helpers';
-import Link from 'next/link';
-import Image from 'next/image';
 import AuditListItem from '../auditListItem';
 
 const items = [
@@ -41,6 +37,7 @@ export default function AuditList() {
   }, []);
 
   return (
+    <>
     <table className="table">
       <thead>
         <tr>
@@ -82,12 +79,17 @@ export default function AuditList() {
               <AuditListItem key={index} index={index} item={item} />
             ))
           ) : (
-            <div className="flex items-center">
-              <div className="flex-1 text-md font-medium">No items found</div>
-            </div>
+            null
           )
         }
       </tbody>
+      
     </table>
+    {(items.length < 1) && (
+      <div className="flex items-center justify-center w-full">
+        <div className="w-full text-center text-md font-medium">No items found</div>
+      </div>
+    )}
+    </>
   );
 }

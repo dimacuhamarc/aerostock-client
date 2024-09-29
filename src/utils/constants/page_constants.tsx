@@ -1,4 +1,4 @@
-import { LuHome, LuUser2, LuLibrary, LuSettings2, LuLogOut, LuBook } from 'react-icons/lu'
+import { LuHome, LuUser2, LuLibrary, LuLogOut, LuBook } from 'react-icons/lu'
 
 const ONBOARDING = {
   SIGN_IN: {
@@ -45,12 +45,6 @@ const APPLICATION = {
 }
 
 const APPLICATION_AUTH = {
-  SETTINGS: {
-    title: 'Settings',
-    description: 'Manage your settings',
-    href: '/settings',
-    icon: <LuSettings2 className="mr-3 h-5 w-5" />,
-  },
   SIGN_OUT: {
     title: 'Sign Out',
     description: 'Sign out of your account',

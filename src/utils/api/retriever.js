@@ -81,4 +81,41 @@ async function getItemAuditLogs() {
   }
 }
 
-export { getUserData, getTotalItemCount, getItems, getItemAuditLogs };
+async function getItemAuditLog({ item_id }) {
+  if (sessionValid()) {
+    try {
+      const response = await axios.get(`${API_URL}/v1/items/${item_id}/audit_log`, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      const itemWithAudit = response.data;
+      console.log(itemWithAudit)
+      return itemWithAudit;
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    return null;
+  }
+}
+
+async function isItemExisting({ item_id }) {
+  if (sessionValid()) {
+    try {
+      const response = await axios.get(`${API_URL}/v1/items/${item_id}`, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      return response.status === 200;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+export { getUserData, getTotalItemCount, getItems, getItemAuditLogs, getItemAuditLog, isItemExisting };

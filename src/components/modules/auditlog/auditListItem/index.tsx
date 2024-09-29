@@ -11,7 +11,7 @@ type AuditListItemProps = {
 export default function AuditListItem({ item, index }: AuditListItemProps) {
   return (
     <tr key={index}>
-      <td>{item.audit_log.length}</td>
+      <td>{index+1}</td>
       <td>{item.item.quantity}</td>
       <th>
         <div className="flex items-center gap-3">
@@ -32,7 +32,7 @@ export default function AuditListItem({ item, index }: AuditListItemProps) {
         </span>
       </td>
       <td>
-        <Link href="/" className="text-primary hover:underline">
+        <Link href={`/audit-log/${item.item.id}`} className="text-primary hover:underline">
           View History{' '}
           <span className="text-muted-foreground">
             ({item.audit_log.length})
