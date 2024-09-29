@@ -37,6 +37,9 @@ async function authOtpSignIn(payload) {
     });
     const userData = response.data;
     sessionStorage.setItem('access-token', userData.token);
+    sessionStorage.setItem('first_name', userData.first_name);
+    sessionStorage.setItem('last_name', userData.last_name);
+    sessionStorage.setItem('employee_id', userData.employee_id);
     return userData;
   } catch (error) {
     console.log(error);

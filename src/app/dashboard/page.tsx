@@ -2,13 +2,17 @@ import { Metadata } from 'next';
 import { APPLICATION } from '@/utils/constants/page_constants';
 import NavBar from '@/components/common/navbar';
 import DashboardLayout from '@/components/layout/dashboard';
+import { getUserData } from '@/utils/api/retriever';
 
 export const metadata: Metadata = {
   title: APPLICATION.DASHBOARD.title,
   description: APPLICATION.DASHBOARD.description,
 };
 
-const user = { name: 'John Doe' };
+const user = {
+  first_name: 'John',
+  last_name: 'Doe',
+}
 const totalItems = 1234;
 const topItems = [
   { name: 'Item A', value: 532 },
@@ -31,7 +35,7 @@ export default function Dashboard() {
         <div className="h-full grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3">
           <div className="card bg-white shadow-md p-4 sm:col-span-2 lg:col-span-2 lg:row-span-1">
             <div className="card-body">
-              <div className="text-2xl font-bold">Hello, {user.name}!</div>
+              <div className="text-2xl font-bold">Hello, {user?.first_name} {user?.last_name}!</div>
               <p className="text-muted-foreground">
                 Welcome to your Aerostock Dashboard.
               </p>
