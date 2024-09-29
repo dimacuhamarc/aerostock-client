@@ -10,7 +10,7 @@ export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
-    restrictOnboarding() ? router.push('/onboarding') : router.push('/dashboard')
+    restrictOnboarding() ? router.push('/sign-in') : router.push('/dashboard')
   }, [])
 
   return (

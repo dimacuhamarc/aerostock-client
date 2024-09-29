@@ -13,26 +13,6 @@ export const metadata: Metadata = {
   description: APPLICATION.DASHBOARD.description,
 };
 
-const user = {
-  first_name: 'John',
-  last_name: 'Doe',
-};
-const totalItems = 1234;
-const topItems = [
-  { name: 'Item A', value: 532 },
-  { name: 'Item B', value: 423 },
-  { name: 'Item C', value: 387 },
-  { name: 'Item D', value: 320 },
-  { name: 'Item E', value: 289 },
-];
-const newItems = [
-  { name: 'New Item 1', value: 20230928 },
-  { name: 'New Item 2', value: 20230927 },
-  { name: 'New Item 3', value: 20230926 },
-  { name: 'New Item 4', value: 20230925 },
-  { name: 'New Item 5', value: 20230924 },
-];
-
 export default function Dashboard() {
   return (
     <DashboardLayout>
