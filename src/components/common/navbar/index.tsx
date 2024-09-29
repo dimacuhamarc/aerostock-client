@@ -5,6 +5,8 @@ import {
   APPLICATION_AUTH,
 } from '@/utils/constants/page_constants';
 
+import { authSignOut } from '@/utils/api/auth';
+
 export default function NavBar() {
   return (
     <div className="flex flex-col h-screen w-64 bg-gray-800 text-white">
@@ -30,7 +32,8 @@ export default function NavBar() {
         {Object.values(APPLICATION_AUTH).map((item, index) => (
           <Link
             key={index}
-            href={item.href}
+            href={'#'}
+            onClick={authSignOut}
             className="flex items-center hover:bg-gray-700 px-4 py-2"
           >
             {item.icon}

@@ -96,11 +96,34 @@ function sessionValid() {
   }
 }
 
+async function authSignOut() {
+  if (sessionValid()) {
+    try {
+      const response = await axios.delete(`${API_URL}/sign_out`, {
+        headers: {
+          'Authorization': sessionStorage.getItem('access-token'),
+        },
+      });
+      const userData = response.data;
+      return userData;
+    } catch (error) {
+      console.log(error);
+    }
+    sessionStorage.removeItem('uid');
+    sessionStorage.removeItem('access-token');
+    sessionStorage.removeItem('first_name');
+    sessionStorage.removeItem('last_name');
+    sessionStorage.removeItem('employee_id');
+    location.reload();
+  }
+}
+
 export {
   authSignIn,
   secureOtpPage,
   authOtpSignIn,
   restrictOnboarding,
   authSignUp,
-  sessionValid
+  sessionValid,
+  authSignOut
 }

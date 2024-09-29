@@ -36,4 +36,20 @@ async function deleteItem(id) {
   }
 }
 
-export { createItem, deleteItem };
+async function updateItem(data, id) {
+  if (sessionValid()) {
+    try {
+      const response = await axios.patch(`${API_URL}/v1/items/${id}`, data, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      const responseData = response.data;
+      return responseData;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export { createItem, deleteItem, updateItem };
