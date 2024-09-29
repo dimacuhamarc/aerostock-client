@@ -63,4 +63,22 @@ async function getItems(opts = {}) {
   }
 }
 
-export { getUserData, getTotalItemCount, getItems };
+async function getItemAuditLogs() {
+  if (sessionValid()) {
+    try {
+      const response = await axios.get(`${API_URL}/v1/items/audit_logs`, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      const itemsWithAudit = response.data;
+      return itemsWithAudit;
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    return null;
+  }
+}
+
+export { getUserData, getTotalItemCount, getItems, getItemAuditLogs };

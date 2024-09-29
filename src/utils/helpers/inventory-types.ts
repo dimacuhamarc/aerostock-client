@@ -16,6 +16,22 @@ type ItemType = {
   updated_at: string;
 };
 
+type AuditLogType = {
+  id: number;
+  event: string;
+  changes: string;
+  modified_at: string;
+  modified_by: string;
+  created_at: string;
+};
+
+type ItemWithAuditType = {
+  item: ItemType;
+  audit_log: AuditLogType[];
+};
+
 export type {
   ItemType,
+  AuditLogType,
+  ItemWithAuditType,
 }
