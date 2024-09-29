@@ -19,24 +19,28 @@ const APPLICATION = {
     description: 'Welcome to the dashboard',
     href: '/dashboard',
     icon: <LuHome className="mr-3 h-5 w-5" />,
+    isDisabled: false,
   },
   INVENTORY: {
     title: 'Inventory',
     description: 'Manage your inventory',
     href: '/inventory',
     icon: <LuBook className="mr-3 h-5 w-5" />,
+    isDisabled: false,
   },
   Users: {
     title: 'Users',
     description: 'Manage your users',
     href: '/users',
     icon: <LuUser2 className="mr-3 h-5 w-5" />,
+    isDisabled: true,
   },
   REPORTS: {
     title: 'Audit Log',
     description: 'View your audit log',
     href: '/audit-log',
     icon: <LuLibrary className="mr-3 h-5 w-5" />,
+    isDisabled: false
   },
 }
 

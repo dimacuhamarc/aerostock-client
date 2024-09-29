@@ -5,7 +5,7 @@ import React, { ReactNode, useState, useEffect } from 'react'
 import { LOADER } from '@/utils/constants/app_constants'
 
 export default function OnboardingLayout({ children } : { children: ReactNode}) {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const timer = setTimeout(() => {

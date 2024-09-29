@@ -16,8 +16,8 @@ export default function NavBar() {
           {Object.values(APPLICATION).map((item, index) => (
             <li key={index}>
               <Link
-                href={item.href}
-                className="flex items-center hover:bg-gray-700 px-4 py-2"
+                href={item.isDisabled ? '#' : item.href}
+                className={`flex items-center hover:bg-gray-700 px-4 py-2 ${item.isDisabled ? 'cursor-not-allowed' : ''}`}
               >
                 {item.icon}
                 {item.title}
