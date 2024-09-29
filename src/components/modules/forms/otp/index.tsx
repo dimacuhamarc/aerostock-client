@@ -45,7 +45,6 @@ export default function OtpForm() {
     setLoading(true);
     const otpString = otp.join('');
     console.log('Submitted OTP:', otpString);
-    const user_id = sessionStorage.getItem('user_id');
     const response = await authOtpSignIn({ otp: otpString });
 
     if (response) {
@@ -55,8 +54,6 @@ export default function OtpForm() {
       alert('Invalid OTP');
       setLoading(false);
     }
-    // Here you would typically send the OTP to your server for verification
-    
   };
 
   return (

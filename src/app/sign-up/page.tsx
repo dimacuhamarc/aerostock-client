@@ -6,6 +6,7 @@ import { LuAtSign, LuSquareAsterisk } from 'react-icons/lu';
 import Input from '@/components/common/input';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { authSignIn } from '@/utils/api/auth';
+import SignUpForm from '@/components/modules/forms/signup';
 
 export const metadata: Metadata = {
   title: ONBOARDING.SIGN_UP.title,
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function SignUp() {
   return (
     <OnboardingLayout>
-      asfasfs
+      <SignUpForm />
     </OnboardingLayout>
   );
 }

@@ -7,6 +7,8 @@ interface SIGN_UP_INPUT {
   email: string;
   password: string;
   confirmPassword: string;
+  first_name: string;
+  last_name: string;
 }
 
 interface OTP_INPUT {
