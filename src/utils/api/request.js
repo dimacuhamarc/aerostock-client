@@ -20,4 +20,20 @@ async function createItem(data) {
   }
 }
 
-export { createItem };
+async function deleteItem(id) {
+  if (sessionValid()) {
+    try {
+      const response = await axios.delete(`${API_URL}/v1/items/${id}`, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      const responseData = response.data;
+      return responseData;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export { createItem, deleteItem };

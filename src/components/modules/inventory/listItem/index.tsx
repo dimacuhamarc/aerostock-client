@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { LuCircleEllipsis } from 'react-icons/lu';
 import { ItemType } from '@/utils/helpers/inventory-types';
+import { deleteItem } from '@/utils/api/request';
+import { useRouter } from 'next/navigation';
 
 interface ListItemProps {
   item: ItemType;
@@ -13,9 +15,17 @@ interface ListItemProps {
 export default function ListItem({ item: itemData, index }: ListItemProps) {
   const [showActions, setShowActions] = useState(false);
 
+  const router = useRouter();
+
   function handleShowActions() {
     setShowActions(!showActions);
   }
+
+  function handleDeleteItem() {
+    deleteItem(itemData.id);
+    window.location.reload();
+  }
+
 
   return (
     <tr>
@@ -48,7 +58,7 @@ export default function ListItem({ item: itemData, index }: ListItemProps) {
               <LuCircleEllipsis className="text-xl" />
             </button>
 
-            <button className="btn btn-error">Delete Item</button>
+            <button className="btn btn-error" onClick={handleDeleteItem}>Delete Item</button>
             <button className="btn btn-primary">Edit Item</button>
           </div>
         )}

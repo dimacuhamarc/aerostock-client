@@ -29,8 +29,6 @@ export default function AddItemForm() {
         (data as any)[key] = 'N/A';  // Assign 'N/A' to non-date fields
       }
     });
-    
-    console.log(data);
 
     const response = await createItem(data);
     if (response) {
