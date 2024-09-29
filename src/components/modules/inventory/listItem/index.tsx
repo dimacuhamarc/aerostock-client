@@ -26,6 +26,10 @@ export default function ListItem({ item: itemData, index }: ListItemProps) {
     window.location.reload();
   }
 
+  function handleEditItem() {
+    router.push(`/inventory/edit-item/${itemData.id}`);
+  }
+
 
   return (
     <tr>
@@ -59,7 +63,7 @@ export default function ListItem({ item: itemData, index }: ListItemProps) {
             </button>
 
             <button className="btn btn-error" onClick={handleDeleteItem}>Delete Item</button>
-            <button className="btn btn-primary">Edit Item</button>
+            <button className="btn btn-primary" onClick={handleEditItem}>Edit Item</button>
           </div>
         )}
         {!showActions && (
