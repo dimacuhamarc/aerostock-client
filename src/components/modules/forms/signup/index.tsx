@@ -4,8 +4,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useRouter } from "next/navigation";
 import { LuAtSign, LuSquareAsterisk, LuUser2 } from 'react-icons/lu';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { authSignIn, authSignUp } from '@/utils/api/auth';
-import { SIGN_IN_INPUT, SIGN_UP_INPUT } from '@/utils/helpers/onboarding-types';
+import { authSignUp } from '@/utils/api/auth';
+import { SIGN_UP_INPUT } from '@/utils/helpers/onboarding-types';
 import Link from 'next/link';
 import { ONBOARDING } from '@/utils/constants/page_constants';
 import { restrictOnboarding } from '@/utils/api/auth';
