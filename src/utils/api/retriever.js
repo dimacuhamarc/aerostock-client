@@ -118,4 +118,22 @@ async function isItemExisting({ item_id }) {
   }
 }
 
-export { getUserData, getTotalItemCount, getItems, getItemAuditLogs, getItemAuditLog, isItemExisting };
+async function getSingleItem({ item_id }) {
+  if (sessionValid()) {
+    try {
+      const response = await axios.get(`${API_URL}/v1/items/${item_id}`, {
+        headers: {
+          Authorization: sessionStorage.getItem('access-token'),
+        },
+      });
+      const item = response.data;
+      return item;
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    return null;
+  }
+}
+
+export { getUserData, getTotalItemCount, getItems, getItemAuditLogs, getItemAuditLog, isItemExisting, getSingleItem };

@@ -22,7 +22,7 @@ export default function Dashboard() {
           <UserCard />
 
           <ListCard
-            title="Top 3 Items"
+            title="Top Items"
             type="top_items"
             icon={<LuTrophy className="h-8 w-8 mr-2 text-muted-foreground" />}
           />
