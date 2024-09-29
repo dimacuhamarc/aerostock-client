@@ -12,10 +12,9 @@ async function createItem(data) {
         },
       });
       const responseData = response.data;
-      console.log(responseData)
       return responseData;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
@@ -31,7 +30,7 @@ async function deleteItem(id) {
       const responseData = response.data;
       return responseData;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
@@ -47,7 +46,7 @@ async function updateItem(data, id) {
       const responseData = response.data;
       return responseData;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }

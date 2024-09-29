@@ -28,7 +28,6 @@ export default function EditItemForm({params}: {params: {id: string}}) {
       const itemData = await getSingleItem({ item_id: params.id });
       itemData || itemData == null ? setLoading(false) : setLoading(true);
       setItem(itemData);
-      console.log(itemData);
     };
     getItem();
   }, [params.id]);
@@ -60,8 +59,6 @@ export default function EditItemForm({params}: {params: {id: string}}) {
         }
       }
     });
-  
-    console.log("Modified fields to update:", updatedData);
   
     setLoading(true);
     // Proceed to update only the modified fields

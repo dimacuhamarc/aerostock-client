@@ -26,7 +26,7 @@ async function getTotalItemCount() {
       const userData = response.data;
       return userData;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     return null;
@@ -54,7 +54,7 @@ async function getItems(opts = {}) {
       return response.data;
     } catch (error) {
       // Handle error case
-      console.log('Error fetching items:');
+      console.error('Error fetching items:');
       return null;
     }
   } else {
@@ -74,7 +74,7 @@ async function getItemAuditLogs() {
       const itemsWithAudit = response.data;
       return itemsWithAudit;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     return null;
@@ -90,10 +90,9 @@ async function getItemAuditLog({ item_id }) {
         },
       });
       const itemWithAudit = response.data;
-      console.log(itemWithAudit)
       return itemWithAudit;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     return null;
@@ -110,7 +109,7 @@ async function isItemExisting({ item_id }) {
       });
       return response.status === 200;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return false;
     }
   } else {
@@ -129,7 +128,7 @@ async function getSingleItem({ item_id }) {
       const item = response.data;
       return item;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     return null;

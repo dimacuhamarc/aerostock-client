@@ -20,7 +20,7 @@ async function authSignIn(payload) {
     sessionStorage.setItem('uid', JSON.stringify(userData.uid));
     return userData;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -42,7 +42,7 @@ async function authOtpSignIn(payload) {
     sessionStorage.setItem('employee_id', userData.employee_id);
     return userData;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -64,7 +64,7 @@ async function authSignUp(payload) {
     const userData = response.data;
     return userData;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -107,7 +107,7 @@ async function authSignOut() {
       const userData = response.data;
       return userData;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     sessionStorage.removeItem('uid');
     sessionStorage.removeItem('access-token');
