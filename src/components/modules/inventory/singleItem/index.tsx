@@ -29,7 +29,6 @@ export default function SingleItem({ params }: { params: { id: string } }) {
     const getItem = async () => {
       const item = await getSingleItem({ item_id: params.id });
       item || item == null ? setLoading(false) : setLoading(true);
-      console.log(item);
       setItemDetail(item);
     };
     getItem();

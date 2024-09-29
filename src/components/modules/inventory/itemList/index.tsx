@@ -19,7 +19,6 @@ export default function ItemList() {
       const data = await getItems({ page: currentPage, items: itemsPerPage });
 
       if (data) {
-        console.log(data);
         setItems(data.items); 
         setTotalPages(data.meta.total_pages); 
       }
