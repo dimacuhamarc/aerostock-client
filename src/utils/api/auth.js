@@ -71,7 +71,7 @@ async function authSignUp(payload) {
 
 function secureOtpPage() {
   const uid = JSON.parse(sessionStorage.getItem('uid'));
-  const token = sessionStorage.getItem('token');
+  const token = sessionStorage.getItem('access-token');
   if (!uid || !token) {
     return true;
   }
@@ -86,10 +86,22 @@ function restrictOnboarding() {
   return false;
 }
 
+function sessionValid() {
+  const uid = JSON.parse(sessionStorage.getItem('uid'));
+  const token = sessionStorage.getItem('access-token');
+
+  if (uid && token) {
+    return true;
+  } else {
+    return false
+  }
+}
+
 export {
   authSignIn,
   secureOtpPage,
   authOtpSignIn,
   restrictOnboarding,
-  authSignUp
+  authSignUp,
+  sessionValid
 }
