@@ -55,7 +55,6 @@ export default function ListCard({ title, type, icon }: ListCardProps) {
       <div className="card-body">
         <div className="space-y-4">
           {loading ? (
-            // map 5 items loading
             Array.from({ length: type === 'latest_items' ? 8 : 3 }).map(
               (_, index) => (
                 <div key={index} className="flex gap-4 items-center">
