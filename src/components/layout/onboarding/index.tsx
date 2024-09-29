@@ -1,8 +1,7 @@
 'use client'
 
 import Loader from '@/components/common/loader'
-import React, { ReactNode } from 'react'
-import { useEffect, useState } from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
 import { LOADER } from '@/utils/constants/app_constants'
 
 export default function OnboardingLayout({ children } : { children: ReactNode}) {
