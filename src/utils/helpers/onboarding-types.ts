@@ -9,4 +9,9 @@ interface SIGN_UP_INPUT {
   confirmPassword: string;
 }
 
-export type { SIGN_IN_INPUT, SIGN_UP_INPUT };
+interface OTP_INPUT {
+  user_id: number;
+  otp: number;
+}
+
+export type { SIGN_IN_INPUT, SIGN_UP_INPUT, OTP_INPUT };

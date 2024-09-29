@@ -1,24 +1,42 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { useRouter } from "next/navigation";
 import { LuAtSign, LuSquareAsterisk } from 'react-icons/lu';
-import Input from '@/components/common/input';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { authSignIn } from '@/utils/api/auth';
 import { SIGN_IN_INPUT } from '@/utils/helpers/onboarding-types';
 import Link from 'next/link';
 import { ONBOARDING } from '@/utils/constants/page_constants';
+import { restrictOnboarding } from '@/utils/api/auth';
+
 
 export default function SignInForm() {
+  const router = useRouter();
+
+  useEffect(() => {
+    restrictOnboarding() ? null : router.push('/dashboard');
+  }, []);
+
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SIGN_IN_INPUT>({ criteriaMode: 'all' });
 
-  const onSubmit: SubmitHandler<SIGN_IN_INPUT> = (data) => {
+  const onSubmit: SubmitHandler<SIGN_IN_INPUT> = async (data) => {
     console.log(data)
-    authSignIn(data);
+    setLoading(true)
+    const response = authSignIn(data)
+    if (await response) {
+      setLoading(false)
+      router.push('/verify-otp')
+    } else {
+      alert('Invalid credentials')
+      setLoading(false)
+    }
   }
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,8 +77,8 @@ export default function SignInForm() {
           </label>
         </div>
 
-        <button type="submit" className="w-full btn btn-primary">
-          Sign In
+        <button type="submit" className={`w-full btn btn-primary ${loading ? 'cursor-not-allowed bg-blue-300' : ''}`}>
+          {loading ? <span className="loading loading-spinner"></span> : 'Sign In'}
         </button>
       </form>
 
