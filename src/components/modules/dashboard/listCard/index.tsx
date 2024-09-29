@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { getItems } from '@/utils/api/retriever';
 import { ItemType } from '@/utils/helpers/inventory-types';
+import { formatTimestamp } from '@/utils/helpers/app-helpers';
 
 type ListCardProps = {
   title: string;
@@ -42,7 +43,7 @@ export default function ListCard({ title, type, icon }: ListCardProps) {
   return (
     <div
       className={`card bg-white shadow-md p-4 sm:col-span-2 lg:col-span-2 animate-card ${
-        type == 'latest_items' ? 'lg:row-span-2' : 'lg:row-span-1'
+        type == 'latest_items' ? 'lg:row-span-2' : 'lg:row-span-2'
       }`}
     >
       <div>
@@ -69,7 +70,7 @@ export default function ListCard({ title, type, icon }: ListCardProps) {
                 <div className="flex-1 text-md font-medium">{item.name}</div>
                 <div className="text-sm font-normal">
                   {type == 'latest_items'
-                    ? item.date_arrival_to_warehouse.toString()
+                    ? formatTimestamp(item.date_arrival_to_warehouse)
                     : item.quantity}
                 </div>
               </div>

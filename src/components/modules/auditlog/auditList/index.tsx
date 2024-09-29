@@ -7,21 +7,6 @@ import {
 } from '@/utils/helpers/inventory-types';
 import AuditListItem from '../auditListItem';
 
-const items = [
-  {
-    id: 1,
-    action: 'Create',
-    entity: 'Item',
-    user: '4',
-  },
-  {
-    id: 2,
-    action: 'Update',
-    entity: 'Item',
-    user: '4',
-  },
-];
-
 export default function AuditList() {
   const [items, setItems] = useState([]);
 
@@ -38,7 +23,7 @@ export default function AuditList() {
 
   return (
     <>
-    <table className="table">
+    <table className="table table-pin-rows">
       <thead>
         <tr>
           <th>#</th>
