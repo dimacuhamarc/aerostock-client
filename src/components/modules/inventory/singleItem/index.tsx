@@ -11,7 +11,7 @@ import Link from 'next/link'
 export default function SingleItem({ params }: { params: { id: string } }) {
   const router = useRouter();
 
-  const [ItemDetail, setItemDetail] = useState<ItemType>(null);
+  const [ItemDetail, setItemDetail] = useState<ItemType>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
